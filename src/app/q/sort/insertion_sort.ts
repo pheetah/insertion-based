@@ -1,6 +1,6 @@
-import { MetalTypesPriority, prioritize, PrioritySelection } from "../example-model/example-model";
+import { prioritize, PrioritySelection } from "../example-model/example-model";
 
-export function insertionSort<K extends PrioritySelection>(array:Array<K>){
+export function insertionSort<T extends PrioritySelection, K extends T>(array:Array<K>){
     var currentValue:K;
     for(var i = 0; i < array.length; i++){
         currentValue = array[i];
@@ -13,7 +13,7 @@ export function insertionSort<K extends PrioritySelection>(array:Array<K>){
     return array;
 }
 
-export function insertionSortBasic<K>(arr:Array<K>){
+export function insertionSortBasic<K extends number>(arr:Array<K>){
 	var currentVal;
     for(var i = 1; i < arr.length; i++){
         currentVal = arr[i];

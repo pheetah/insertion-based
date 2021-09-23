@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MetalComponent } from './example-model/example-model';
+import { MetalComponent, PrioritySelection } from './example-model/example-model';
 import { insertionSort, insertionSortBasic } from './sort/insertion_sort';
 import { PriorityQ } from './structure/queue';
 
@@ -99,7 +99,7 @@ export class QComponent implements OnInit {
     //   this.metal3,
     // )
 
-    console.log(insertionSort<MetalComponent>(metals));
+    console.log(insertionSort<Pick<MetalComponent, 'type'>, MetalComponent>(metals));
   }
 
   operationSort2(){
