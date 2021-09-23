@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "PriorityQ"
+  "defaultProject": "PriorityQ",
+  "cli": {
+    "analytics": "0512dac4-c3aa-4a39-9df5-380daba37704"
+  }
 }
