@@ -1,24 +1,27 @@
-export class QItem{
-    public val:any;
+export class QItem<T>{
+    public val:T;
     public priority:number;
 
-    constructor(val:any, priority:number){
+    constructor(val:T, priority:number){
         this.val = val;
         this.priority = priority;
     }
 }
 
-export class PriorityQ {
-    private values:Array<QItem>;
+export class PriorityQ<K> {
+    private values:Array<QItem<K>>;
+
     constructor(){
         this.values = [];
     }
-    enqueue(val:any, priority:number){
-        let newNode = new QItem(val, priority);
+
+    public enqueue(val:K, priority:number){
+        let newNode = new QItem<K>(val, priority);
         this.values.push(newNode);
         this.bubbleUp();
     }
-    bubbleUp(){
+
+    private bubbleUp(){
         let idx = this.values.length - 1;
         const element = this.values[idx];
         while(idx > 0){
@@ -30,7 +33,8 @@ export class PriorityQ {
             idx = parentIdx;
         }
     }
-    dequeue(){
+
+    public dequeue(){
         const min = this.values[0];
         const end = this.values.pop();
         if(this.values.length > 0){
@@ -39,7 +43,8 @@ export class PriorityQ {
         }
         return min;
     }
-    sinkDown(){
+
+    private sinkDown(){
         let idx = 0;
         const length = this.values.length;
         const element = this.values[0];
@@ -70,4 +75,9 @@ export class PriorityQ {
             idx = swap;
         }
     }
+
+    public getSize(){
+        return this.values.length;
+    }
+
 }
